@@ -1,0 +1,39 @@
+.btn {
+    border: none;
+    border-radius: 5px;
+    color: rgb(249, 245, 245);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+  } 
+
+  .navbar {
+    background-color: rgb(8, 7, 7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    opacity: 80%;
+    /* background-color: transparent */
+  }
+  
+  .nav-link {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 40px;
+    padding-right: 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: rgb(225, 234, 55);
+  }
+
+  .nav-link.active {
+    color: red;
+  }

@@ -1,0 +1,20 @@
+table {
+    border-collapse: collapse;
+  }
+  
+  td {
+    height: 50px;
+    padding: 10px;
+    border: 1px solid black;
+  }
+
+  .columns {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .column {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 10px;
+  }

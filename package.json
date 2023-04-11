@@ -40,8 +40,7 @@
   "scripts": {
     "prebuild": "set CI=false",
     "start": "react-scripts start",
-    "build": "react-scripts --no-warnings",
-    "test": "react-scripts test",
+    "build": "react-scripts build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

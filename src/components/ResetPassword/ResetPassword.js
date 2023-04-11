@@ -45,7 +45,7 @@ function ResetPassword() {
             setFormError(true);
             setFormSubmitted(false);
         }else{
-            fetch('http://localhost:8000/resetPassword', {
+            fetch('https://hoosierbackend.azurewebsites.net/resetPassword', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({userEmail, password})

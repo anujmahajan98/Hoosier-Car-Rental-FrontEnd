@@ -24,7 +24,7 @@ function Maps() {
         var password = "";
         var email = "Anuj12@gmail.com"
         setShowMap(!showMap);
-        fetch('http://localhost:8000/login', {
+        fetch('https://hoosierbackend.azurewebsites.net/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({email, password })

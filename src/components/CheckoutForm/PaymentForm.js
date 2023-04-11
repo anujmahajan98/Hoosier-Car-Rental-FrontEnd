@@ -43,7 +43,7 @@ export default function PaymentForm(props){
             {
                 const {id} = paymentMethod
                 const paymentDate = new Date().toISOString().substring(0, 10);
-                fetch('http://localhost:8000/payment', {
+                fetch('https://hoosierbackend.azurewebsites.net/payment', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({amount:67.00, id , email: userEmail, paymentDate: paymentDate})

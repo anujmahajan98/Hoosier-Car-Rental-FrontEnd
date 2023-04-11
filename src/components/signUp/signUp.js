@@ -72,7 +72,7 @@ function SignUpForm() {
           setEmailError("Please enter a valid email address.");
         } else {
           setEmailError("");
-          fetch('http://localhost:8000/checkEmailUniqueness', {
+          fetch('https://hoosierbackend.azurewebsites.net/checkEmailUniqueness', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({email})
@@ -168,7 +168,7 @@ function SignUpForm() {
         else{
             console.log(emailError)
             setFormError(false);
-            fetch('http://localhost:8000/signup', {
+            fetch('https://hoosierbackend.azurewebsites.net/signup', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, 

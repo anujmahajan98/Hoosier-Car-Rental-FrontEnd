@@ -141,7 +141,7 @@ function AdminView() {
   var [carListAccess, setCarListAccess] = useState(false);
 
       const userList = (event) => {
-        fetch('http://localhost:8000/userList', {
+        fetch('https://hoosierbackend.azurewebsites.net/userList', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({})
@@ -160,7 +160,7 @@ function AdminView() {
       };
 
     const carList = (event) => {
-      fetch('http://localhost:8000/AddNewCar', {
+      fetch('https://hoosierbackend.azurewebsites.net/AddNewCar', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({})

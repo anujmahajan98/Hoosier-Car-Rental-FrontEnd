@@ -83,7 +83,7 @@ function ForgetPassword() {
             if(emailError == ""){
               setFormSubmitted(true);
               event.preventDefault();
-              fetch('http://localhost:8000/checkEmailUniqueness', {
+              fetch('https://hoosierbackend.azurewebsites.net/checkEmailUniqueness', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({email})

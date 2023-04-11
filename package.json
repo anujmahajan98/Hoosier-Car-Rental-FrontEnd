@@ -40,7 +40,7 @@
   "scripts": {
     "prebuild": "set CI=false",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts --no-warnings",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

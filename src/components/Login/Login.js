@@ -58,7 +58,7 @@ function LoginForm() {
         }
         else{
             setFormError(false);
-            fetch('http://localhost:8000/login', {
+            fetch('https://hoosierbackend.azurewebsites.net/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({email, password })
@@ -112,7 +112,7 @@ function LoginForm() {
           var email = data.user.reloadUserInfo.email
           try {
             let { data } = await axios.post(
-              "http://localhost:8000/signup",
+              "https://hoosierbackend.azurewebsites.net/signup",
               {
                 email: email,
                 selectedOption: selectedRole

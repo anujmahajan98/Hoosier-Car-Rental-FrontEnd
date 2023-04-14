@@ -30,7 +30,8 @@ const OwnerView = ({history}) => {
 
     const showBookings = (event) => {
       setBookingData(!bookingData);
-      fetch('http://localhost:5001/ownerBookingDetails', {
+      setShowMap(false);
+      fetch('https://hoosierbackend.azurewebsites.net/ownerBookingDetails', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ userEmail })
@@ -69,6 +70,9 @@ const OwnerView = ({history}) => {
                     center = { lat:  data[0].lattitude, lng : data[0].longitude}
                     setCenter(center);
                     console.log(center)
+                  }else{
+                    center = { lat: 10.222, lng: 86.5264 }
+                    setCenter(center);
                   }
                 })
                 .catch(error => {
@@ -102,25 +106,7 @@ const OwnerView = ({history}) => {
                     </Switch>
                 </Col>
               </Col>
-              <Col md={4}>
-              {showMap &&
-                <div style={{height:'350px', width: '40%'}}>
-                    <GoogleMap
-                        center={center}
-                        zoom={15}
-                        mapContainerStyle={{ width: "100%", height: "100%" }}
-                        options={{
-                            zoomControl: false,
-                            streetViewControl: false,
-                            mapTypeControl: false,
-                            fullscreenControl: false,
-                        }}
-                        onLoad={(map) => setMap(map)}>
-                        {center.lat && center.lng && <Marker position={center} />}
-                    </GoogleMap>
-                </div>
-                }
-              </Col>
+              
           </Row>
 
         <Row>
@@ -155,6 +141,29 @@ const OwnerView = ({history}) => {
               </div>
               }
             </Col>
+            <Col md={4}>
+              {showMap &&
+                <div style={{height:'350px', width: '40%'}}>
+                    <GoogleMap
+                        center={center}
+                        zoom={15}
+                        mapContainerStyle={{ width: "100%", height: "100%" }}
+                        options={{
+                            zoomControl: false,
+                            streetViewControl: false,
+                            mapTypeControl: false,
+                            fullscreenControl: false,
+                        }}
+                        onLoad={(map) => setMap(map)}>
+                        {/* {center.lat && center.lng && <Marker position={center} />} */}
+                        {center.lat && center.lng && <Marker
+            position={{ lat: center.lat, lng: center.lng }}
+            map={map}
+          />} 
+                    </GoogleMap>
+                </div>
+                }
+              </Col>
         </Row>
       </Container>
       </>

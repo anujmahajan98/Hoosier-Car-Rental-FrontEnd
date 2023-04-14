@@ -12,7 +12,7 @@ const OwnerBookingDetails = () => {
     
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5001/ownerBookingDetails', {
+        const response = await fetch('hoosierbackend.azurewebsites.net/ownerBookingDetails', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ ownerEmail })

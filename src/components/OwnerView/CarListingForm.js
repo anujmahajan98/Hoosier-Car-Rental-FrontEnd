@@ -56,7 +56,7 @@ function CarListingForm() {
 
 
       
-        fetch('http://localhost:5001/CarListingForm', {
+        fetch('https://hoosierbackend.azurewebsites.net/CarListingForm', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ownerName, carCompany, carModel, carType, startDate, endDate, image, otherDetails, userEmail, carNumber, price })

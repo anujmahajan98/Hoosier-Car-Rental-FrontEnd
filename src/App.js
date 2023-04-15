@@ -2,11 +2,9 @@ import './App.css';
 import Navbar from './components/navbar';
 import LandingPage from './components/landingPage';
 import LoginForm from './components/Login/Login';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import SignUpForm from './components/signUp/signUp';
-import ContactUs from './components/contactUs/contactUs';
 import ForgetPassword from './components/forgetPassword/forgetPassword';
-import SearchBar from './components/SearchBar/searchBar';
 import Footer from './components/footer/Footer';
 import ResetPassword from './components/ResetPassword/ResetPassword';
 import UserView from './components/UserView/UserView';
@@ -15,6 +13,7 @@ import Chat from './components/chat/chat';
 import {BrowserRouter as Router} from "react-router-dom";
 import React, { useEffect } from 'react';
 import Maps from './components/Maps/Maps';
+import OwnerView from './components/OwnerView/OwnerView'
 
 
 /*function App() {
@@ -86,6 +85,7 @@ const App = () => {
         <Route path="/UserView" component={UserView} />
         <Route path="/AdminView" component={AdminView} />
         <Route path="/maps" component={Maps} />
+        <Route path="/OwnerView" component={OwnerView} />
         <Footer />
         </Router>
         <Chat/>

@@ -79,7 +79,7 @@ function LoginForm() {
                       }
                       else if(data[0].role === 'Owner')
                       {
-                        history.push('/UserView', { data: data[0].email });
+                        history.push('/OwnerView', { data: data[0].email });
                         window.location.reload();
                       }
                       else

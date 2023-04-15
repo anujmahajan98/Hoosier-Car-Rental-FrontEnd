@@ -72,8 +72,7 @@ function ForgetPassword() {
       const handleSubmit = (event) => {
         event.preventDefault();
         //email = event.target.email.value;
-        alert(email)
-        alert(emailError)
+
         if(email === ""){
             setFormError(true);
             setFormSubmitted(false);

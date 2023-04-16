@@ -14,7 +14,7 @@ function ForgetPassword() {
     const [emailError, setEmailError] = useState("");
     const [errors, setFormError] = useState("");
     const [formSubmitted, setFormSubmitted] = useState(false);
-    const [otpToSend, setOtpToSend] = useState(1234);
+    const [otpToSend, setOtpToSend] = useState(9325);
     const [otp, setOtp] = useState();
     const [verifyError, setVerifyError] = useState(false);
     const NodeCache = require('node-cache');
@@ -154,10 +154,12 @@ function ForgetPassword() {
           // }else{
           //   alert('Wrong OTP')
           // }
-          if(otp === '1234'){
+          if(otp === '9325'){
             alert('OTP Verified')
             history.push('/ResetPassword', { data: email });
             window.location.reload();
+          }else{
+            alert('You have entered the wrong OTP')
           }
         }
       };

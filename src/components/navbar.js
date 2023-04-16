@@ -19,14 +19,14 @@ const Navbar = ({ currentPage }) => {
         <div>
           <a href="/" className="nav-link">Home</a>
             <>
-              <a href="/dashboard" className="nav-link">Dashboard</a>
-              <a href="/" className="nav-link">LogOut</a>
+              {/* <a href="/dashboard" className="nav-link">Dashboard</a> */}
+              <a href="/login" className="nav-link">LogOut</a>
             </>
         </div>
       ) : currentPage === '/OwnerView' ? (
         <div>
           <a href="/" className="nav-link">Home</a>
-          <a href="/" className="nav-link">LogOut</a>
+          <a href="/login" className="nav-link">LogOut</a>
         </div>
       ) : (
         <div>

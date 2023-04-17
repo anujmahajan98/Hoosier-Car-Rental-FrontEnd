@@ -1,20 +1,16 @@
-table {
+.my-table {
     border-collapse: collapse;
+    width: 80%;
   }
   
-  td {
-    height: 50px;
-    padding: 10px;
-    border: 1px solid black;
-  }
-
-  .columns {
-    display: flex;
-    flex-wrap: wrap;
+  .my-table th,
+  .my-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
   }
   
-  .column {
-    width: 50%;
-    box-sizing: border-box;
-    padding: 0 10px;
+  .my-table th {
+    background-color: #f2f2f2;
   }
+  

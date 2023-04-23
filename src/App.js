@@ -13,8 +13,11 @@ import Chat from './components/chat/chat';
 import {BrowserRouter as Router} from "react-router-dom";
 import React, { useEffect } from 'react';
 import Maps from './components/Maps/Maps';
-import OwnerView from './components/OwnerView/OwnerView'
-
+import OwnerView from './components/OwnerView/OwnerView';
+//raja - april 23rd
+import Payments from './components/Payments/payments';
+import SearchBar from './components/SearchBar/searchBar';
+//raja - april 23rd
 
 /*function App() {
   return (
@@ -86,6 +89,10 @@ const App = () => {
         <Route path="/AdminView" component={AdminView} />
         <Route path="/maps" component={Maps} />
         <Route path="/OwnerView" component={OwnerView} />
+          {/* //raja-april 23rd */}
+        <Route path="/Payments" component={Payments}/>
+        <Route path="/SearchBar" component={SearchBar}/>
+        {/* //raja-april 23rd */}
         <Footer />
         </Router>
         <Chat/>

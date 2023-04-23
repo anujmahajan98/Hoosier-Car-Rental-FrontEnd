@@ -24,9 +24,7 @@ const LandingPage = () => {
             }}>
             <h1 style={{margin: 0, fontSize: '3em'}}>Welcome to Hoosiers Car Rentals</h1>
         </div>
-        <div>
-          <SearchBar />
-        </div>
+ 
       </div>
       <div>
           <AboutUs />

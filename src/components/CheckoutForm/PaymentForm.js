@@ -28,8 +28,20 @@ export default function PaymentForm(props){
     const [success, setSuccess] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
-    const { userEmail } = props;
-
+    const docs = props;
+    console.log("In paymentForm")
+    const price = docs.data[0].price 
+    const userEmail = docs.data[1]
+    // console.log("userEmail is ", userEmail)
+    const ownerEmail = docs.data[0].ownerEmail 
+    // console.log("ownerEmail is",ownerEmail)
+    const carType = docs.data[0].carType 
+    const carCompany = docs.data[0].carCompany 
+    const carModel = docs.data[0].carModel 
+    const carNumber = docs.data[0].carNumber 
+    const ownerName = docs.data[0].ownerName 
+    // console.log("ownerName is ",ownerName)
+    // console.log("data is",docs.data)
     const handleSubmit = async (e) => {
         e.preventDefault()
         const {error, paymentMethod} = await stripe.createPaymentMethod({
@@ -43,20 +55,23 @@ export default function PaymentForm(props){
             {
                 const {id} = paymentMethod
                 const paymentDate = new Date().toISOString().substring(0, 10);
-                fetch('https://hoosierbackend.azurewebsites.net/payment', {
+                fetch('https://hoosier-backend.onrender.com/payment', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({amount:67.00, id , email: userEmail, paymentDate: paymentDate})
+                body: JSON.stringify({PaymentId:id, price:price, ownerEmail:ownerEmail,userEmail: userEmail, carType: carType, 
+                    carModel:carModel, carCompany: carCompany, 
+                     carNumber: carNumber, ownerName:ownerName, paymentDate:paymentDate})
               })
               .then(response => response.json())
                 .then(data => {
-    
+                    console.log("tried sending the data to")
                     if(data.success) {
                         console.log("Successful payment")
+                        console.log("paymentDate is",paymentDate)
                         setSuccess(true)
                     }
                 })
-    
+            
             } catch (error) {
                 console.log("Error", error)
             }
@@ -93,7 +108,7 @@ export default function PaymentForm(props){
         </form>
         :
        <div>
-           <h2>You just rented a car congrats this is the best decision of you're life</h2>
+           <h1>You just rented a car. Congrats!! </h1>
        </div> 
         }
             

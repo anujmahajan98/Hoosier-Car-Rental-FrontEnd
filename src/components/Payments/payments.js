@@ -35,7 +35,6 @@
 
 import { useLocation } from 'react-router-dom';
 import StripeContainer from '../CheckoutForm/StripeContainer';
-import './payments.css';
 import axios from 'axios';
 
 function Payments() {

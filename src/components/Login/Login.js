@@ -84,8 +84,11 @@ function LoginForm() {
                       }
                       else
                       {
-                        history.push('/UserView', { data: data[0].email });
+                        //raja - april 23rd
+                        history.push('/SearchBar', { data: data[0].email });
+                        // console.log("here in login.js page and email is",data[0].email)
                         window.location.reload();
+                        //raja - april 23rd
                       }
 
 

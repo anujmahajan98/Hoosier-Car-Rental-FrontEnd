@@ -33,7 +33,25 @@ const Navbar = ({ currentPage }) => {
           <a href="/" className="nav-link">Home</a>
           <a href="/login" className="nav-link">LogOut</a>
         </div>
-      ) : (
+      ) :
+      
+      //raja-april 23rd
+      
+        currentPage === '/SearchBar' ? (
+        <div>
+          <a href="/" className="nav-link">Home</a>
+          <a href="/login" className="nav-link">LogOut</a>
+        </div>
+      ) :
+        currentPage === '/Payments' ? (
+        <div>
+          <a href="/" className="nav-link">Home</a>
+              <a href="/login" className="nav-link">LogOut</a>
+        </div>
+      ) : 
+      //raja-april 23rd
+      
+      (
         <div>
           <a href="/" className="nav-link">Home</a>
           <a href="/login" className="nav-link">Login</a>

@@ -3,10 +3,6 @@ import './AdminView.css'
 import { Row,Col,Container,Button } from 'react-bootstrap'
 
 import { useState } from "react";
-
-import handleApprove from './AddNewCar.js'
-import handleReject from './AddNewCar.js'
-
 function AdminView() {
 
   var [userData, setUserData] = useState([]);
@@ -151,6 +147,7 @@ function AdminView() {
                     <th>  Owner Name  </th>
                     <th>  Car Company  </th>
                     <th>  Car Type  </th>
+                    <th>  Image  </th>
                     <th>  Approve  </th>
                     <th>  Reject  </th>
                   </tr>
@@ -162,6 +159,7 @@ function AdminView() {
                       <td style={{border : "1px solid black"}}>{item.ownerName ? item.ownerName : "-"}</td>
                       <td style={{border : "1px solid black"}}>{item.carCompany ? item.carCompany : "-"}</td>
                       <td style={{border : "1px solid black"}}>{item.carType ? item.carType : "-"}</td>
+                      <td style={{border : "1px solid black"}}>{item.image ? <img src={item.image} alt="About Image" /> : "-"}</td>
                       <td style={{border : "1px solid black"}}>
                   <Button variant="success" onClick={() => handleApprove(item._id, item.carNumber)}>Approve</Button>
                 </td>

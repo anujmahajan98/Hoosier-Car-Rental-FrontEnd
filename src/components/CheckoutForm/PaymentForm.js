@@ -31,36 +31,47 @@ export default function PaymentForm(props){
     const [success, setSuccess] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
+    const docs = props;
     const history = useHistory();
-    const { userEmail } = props;
-
+    console.log("In paymentForm")
+    const price = docs.data[0].price 
+    const userEmail = docs.data[1]
+    // console.log("userEmail is ", userEmail)
+    const ownerEmail = docs.data[0].ownerEmail 
+    // console.log("ownerEmail is",ownerEmail)
+    const carType = docs.data[0].carType 
+    const carCompany = docs.data[0].carCompany 
+    const carModel = docs.data[0].carModel 
+    const carNumber = docs.data[0].carNumber 
+    const ownerName = docs.data[0].ownerName 
+    // console.log("ownerName is ",ownerName)
+    // console.log("data is",docs.data)
     const handleSubmit = async (e) => {
         e.preventDefault()
         const {error, paymentMethod} = await stripe.createPaymentMethod({
             type: "card",
             card: elements.getElement(CardElement)
         })
-        
+
         if(!error) 
         {
             try 
             {
                 const {id} = paymentMethod
                 const paymentDate = new Date().toISOString().substring(0, 10);
-                var amount = 67.00
-                var email = userEmail
-                
-                // fetch('http://localhost:5001/payment',
-                fetch('https://hoosierbackend.azurewebsites.net/payment',
-                {
+                fetch('https://hoosier-backend.onrender.com/payment', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({amount:amount, id , email: userEmail, paymentDate: paymentDate})
+                body: JSON.stringify({PaymentId:id, price:price, ownerEmail:ownerEmail,userEmail: userEmail, carType: carType, 
+                    carModel:carModel, carCompany: carCompany, 
+                     carNumber: carNumber, ownerName:ownerName, paymentDate:paymentDate})
               })
               .then(response => response.json())
                 .then(data => {
+
                     if(data.success) {
                         console.log("Successful payment")
+                        console.log("paymentDate is",paymentDate)
                         setSuccess(true)
                         emailjs
                             .sendForm(
@@ -72,40 +83,28 @@ export default function PaymentForm(props){
                             .then(
                             (result) => {
                                 console.log(result.text);
-                                history.push('/UserView', { data: userEmail });
+                                history.push('/SearchBar', { data: userEmail });
                             },
                             (error) => {
                                 console.log(error.text);
                             }
                         );
-                        
-                        
                     }
                 })
-    
+            
             } catch (error) {
                 console.log("Error", error)
-                console.log('Error Occured')
             }
         } else {
-            console.log('Error Occured 2')
             console.log(error.message)
         }
-        console.log("EmailJS Email is : ",userEmail)
-        
-        
-        
     }
-
-    
-
-    
     
     return(
         // style={{ width: "50%", padding: "10px", }}
         <>
         {!success ? 
-        <form id = 'my-form' style={{marginTop: '10px'}} onSubmit={handleSubmit} ref={form} >
+        <form id = 'my-form' style={{marginTop: '10px'}} onSubmit={handleSubmit} ref={form}>
             <fieldset className="FormGroup" style={{maxWidth: '500px', alignItems: 'center'}}>
                 <div className="FormRow" style={{maxWidth: '500px'}}>
                     <CardElement options={CARD_OPTIONS}/>
@@ -126,14 +125,12 @@ export default function PaymentForm(props){
                     transition: 'all 100ms ease-in-out',
                     willChange: 'transform, background-color, box-shadow',
                     border: 'none'}}>Pay</button>
-            <input type="hidden" name="email" value={userEmail}></input>
-            {/* <input type="hidden" name="amount" value={amountOfPayment}></input> */}
         </form>
         :
        <div>
-           <h2>You just rented a car congrats this is the best decision of you're life</h2>
+           <h1>You just rented a car. Congrats!! </h1>
+
        </div> 
-       
         }
             
         </>

@@ -125,6 +125,7 @@ export default function PaymentForm(props){
                     transition: 'all 100ms ease-in-out',
                     willChange: 'transform, background-color, box-shadow',
                     border: 'none'}}>Pay</button>
+		<input type="hidden" name="email" value={userEmail}></input>
         </form>
         :
        <div>

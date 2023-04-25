@@ -4,12 +4,25 @@ import { Link } from 'react-router-dom';
 import LoginForm from './Login/Login';
 import './navbar.css'
 import { NavLink } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
+
+
+
 
 
 const Navbar = ({ currentPage }) => {
   
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const history = useHistory();
+  const location=useLocation();
+  const userEmail = location.state?location.state.data:null;
+  
+  const handleClick = () => {
+    // send userEmail to another page
+    console.log("Sent data to searchbar on click ->",userEmail)
+    history.push('/SearchBar', { data: userEmail });
+  };
+
 
   return (
     <nav className='navbar'>
@@ -19,6 +32,8 @@ const Navbar = ({ currentPage }) => {
         <div>
           <a href="/" className="nav-link">Home</a>
             <>
+              <a href="/" className="nav-link">Home</a>
+              <a href="/SearchBar" onClick={handleClick} className="nav-link">Search</a>
               {/* <a href="/dashboard" className="nav-link">Dashboard</a> */}
               <a href="/login" className="nav-link">LogOut</a>
             </>
@@ -43,6 +58,15 @@ const Navbar = ({ currentPage }) => {
           <a href="/login" className="nav-link">LogOut</a>
         </div>
       ) :
+      
+      currentPage === '/userDashboard' ? (
+        <div>
+          <a href="/" className="nav-link">Home</a>
+          <a href='/SearchBar' onClick={handleClick} className="nav-link">Search</a>
+          <a href="/login" className="nav-link">LogOut</a>
+        </div>
+      ) 
+      : 
         currentPage === '/Payments' ? (
         <div>
           <a href="/" className="nav-link">Home</a>

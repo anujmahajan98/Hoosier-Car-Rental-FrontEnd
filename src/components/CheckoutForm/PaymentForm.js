@@ -59,7 +59,7 @@ export default function PaymentForm(props){
             {
                 const {id} = paymentMethod
                 const paymentDate = new Date().toISOString().substring(0, 10);
-                fetch('https://hoosier-backend.onrender.com/payment', {
+                fetch('https://hoosierbackend.azurewebsites.net/payment', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({PaymentId:id, price:price, ownerEmail:ownerEmail,userEmail: userEmail, carType: carType, 

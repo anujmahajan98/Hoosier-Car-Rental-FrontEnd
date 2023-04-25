@@ -16,6 +16,13 @@ const Navbar = ({ currentPage }) => {
   const history = useHistory();
   const location=useLocation();
   const userEmail = location.state?location.state.data:null;
+  
+  const handleClick = () => {
+    // send userEmail to another page
+    console.log("Sent data to searchbar on click ->",userEmail)
+    history.push('/SearchBar', { data: userEmail });
+  };
+
 
   return (
     <nav className='navbar'>
@@ -25,6 +32,7 @@ const Navbar = ({ currentPage }) => {
         <div>
           <a href="/" className="nav-link">Home</a>
             <>
+              <a href="/" className="nav-link">Home</a>
               <a href="/SearchBar" onClick={handleClick} className="nav-link">Search</a>
               {/* <a href="/dashboard" className="nav-link">Dashboard</a> */}
               <a href="/login" className="nav-link">LogOut</a>

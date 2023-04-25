@@ -7,14 +7,15 @@ import { NavLink } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 
 
-const location=useLocation();
-const userEmail = location.state?location.state.data:null;
+
 
 
 const Navbar = ({ currentPage }) => {
   
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const history = useHistory();
+  const location=useLocation();
+  const userEmail = location.state?location.state.data:null;
 
   return (
     <nav className='navbar'>

@@ -13,6 +13,7 @@ function UserView(props) {
   const userEmail = props.location.state.data[1];
 
   const data = [docs]
+  console.log(data)
   data.push(userEmail)
   function handleDashboardClick() {
     history.push('/UserDashboard');
@@ -33,7 +34,9 @@ function UserView(props) {
               <strong>Car Type: </strong>{item.carType}<br />
               <strong>Email of Owner: </strong>{item.ownerEmail}<br />
               <strong>Car Number: </strong>{item.carNumber}<br />
-              <strong>Price: </strong>{item.price}
+              <strong>Price: </strong>{item.price}<br />
+              
+              <strong>Image: </strong><img src={'https://cdn.motor1.com/images/mgl/x10Wv/s1/2020-hyundai-venue-sel.webp'}></img>
             </div>
             {/* Update the button to navigate to ReservationForm */}
             {/* <Link to="/Payments">

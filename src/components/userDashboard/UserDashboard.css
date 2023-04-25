@@ -1,0 +1,17 @@
+.booking-item {
+    width: 40%; 
+    /* additional styles */
+  }
+
+.booking-list {
+    display: center;
+    flex-direction: column;
+    align-items: center; /* Center align items horizontally */
+    /* justify-content: center; Center align items vertically */
+    height: 100vh; /* Set a height to center items vertically */
+  }
+
+
+  strong{
+    margin-left: 10px;
+  }

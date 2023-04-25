@@ -68,7 +68,7 @@ function SearchBar(props) {
       })
         .then((response) => response.json())
         .then((data) => {
-          history.push('/userDashboard', { data: data })//send booking details to userDashboard
+          history.push('/UserDashboard', { data: data })//send booking details to userDashboard
           console.log(data)
           })
         .catch((error) => {

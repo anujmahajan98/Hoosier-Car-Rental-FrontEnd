@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import LoginForm from './Login/Login';
 import './navbar.css'
 import { NavLink } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
+
+
 const location=useLocation();
 const userEmail = location.state?location.state.data:null;
 

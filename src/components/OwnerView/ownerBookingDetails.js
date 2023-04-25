@@ -56,6 +56,7 @@ const OwnerBookingDetails = () => {
             <tr>
               <th>User Name</th>
               <th>User Address</th>
+              <th>Image</th>
             </tr>
           </thead>
           <tbody>
@@ -63,6 +64,7 @@ const OwnerBookingDetails = () => {
               <tr key={item._id}>
                 <td>{item.userName}</td>
                 <td>{item.userAddress}</td>
+                <td>{item.image}</td>
               </tr>
             ))}
           </tbody>

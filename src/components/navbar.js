@@ -26,7 +26,7 @@ const Navbar = ({ currentPage }) => {
 
   return (
     <nav className='navbar'>
-        <h1 style={{margin: 0}}>Hoosiers Car Rental</h1>
+        <h1 style={{margin: 0, color:'white'}}>Hoosiers Car Rental</h1>
 
         {currentPage === '/UserView' ? (
         <div>

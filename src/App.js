@@ -17,7 +17,10 @@ import OwnerView from './components/OwnerView/OwnerView';
 //raja - april 23rd
 import Payments from './components/Payments/payments';
 import SearchBar from './components/SearchBar/searchBar';
+import UserDashboard from './components/userDashboard/UserDashboard.js';
 //raja - april 23rd
+
+
 
 /*function App() {
   return (
@@ -93,6 +96,9 @@ const App = () => {
         <Route path="/Payments" component={Payments}/>
         <Route path="/SearchBar" component={SearchBar}/>
         {/* //raja-april 23rd */}
+        {/* raja-april 23rd after meeting */}
+        <Route path="/UserDashboard" component={UserDashboard} />
+        {/* raja-april 23rd after meeting */}
         <Footer />
         </Router>
         <Chat/>
